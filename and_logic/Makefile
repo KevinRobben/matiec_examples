@@ -4,7 +4,7 @@ STFILE=main.st
 IECGENERATEDSOURCES=STD_CONF.c STD_RESSOURCE.c 
 SOURCES=$(IECGENERATEDSOURCES) plc.c  main.c
 OBJECTS=$(SOURCES:.c=.o)
-CFLAGS=-I $(MATIEC_C_INCLUDE_PATH) -c
+CFLAGS=-I '/mnt/c/Users/Kevin Robben/Documents/Github repos/matiec/lib/c' -c
 LDFLAGS=-lrt
 EXECUTABLE=softplc
 
@@ -30,6 +30,6 @@ clean:
 	rm $(EXECUTABLE)
 
 $(IECGENERATEDSOURCES): $(STFILE)
-	iec2c $(STFILE) -I $(MATIEC_INCLUDE_PATH)	
+	../../iec2c $(STFILE) -I '/mnt/c/Users/Kevin Robben/Documents/Github repos/matiec/lib'
 
 fresh: | clean all
